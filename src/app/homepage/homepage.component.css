@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 20px;
+  margin: 15px;
 }
 
 .register-btn, .login-btn {
   background-color: #5B92A6;
-  font-size: 16px;
+  font-size: 12px;
   color: white;
   padding: 10px;
 }
@@ -18,7 +18,7 @@
 
 .banner {
   background-image: url('../../assets/homepage_travel.jpg');
-  height: 300px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,4 +62,8 @@
   color: #5B92A6;
   font-weight: 500;
   font-size: 20px;
+}
+
+@media  {
+
 }
