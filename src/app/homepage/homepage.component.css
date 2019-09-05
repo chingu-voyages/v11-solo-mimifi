@@ -49,8 +49,9 @@
 
 .todo {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  vertical-align: middle;
+  align-items: center;
 }
 
 .material-icons {
@@ -64,6 +65,43 @@
   font-size: 20px;
 }
 
-@media  {
+@media (min-width: 700px) {
+  .header {
+    margin: 20px;
+  }
 
+  .register-btn, .login-btn {
+    font-size: 16px;
+  }
+
+  .banner {
+    height: 350px;
+  }
+
+  .three-phrases {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .organizer, .easy, .forget {
+    width: 300px;
+  }
+
+  .todo {
+    font-size: 40px;
+    padding-top: 30px;
+  }
+
+  .material-icons, .add-todo {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1020px) {
+  .three-phrases {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
