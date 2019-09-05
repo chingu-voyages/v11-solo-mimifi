@@ -36,14 +36,25 @@
   margin-bottom: 10px;
 }
 
-.easy, .reusable ,.notforget {
-  width: 100px;
+.easy, .reusable, .notforget {
+  text-transform: uppercase;
+  width: 200px;
   text-align: center;
   margin: 10px;
   padding: 15px;
   color: #5B92A6;
   background-color: #F5F2EC;
-  box-shadow: 0px 2px 2px #c6c6c6;
+  box-shadow: 0 2px 2px #c6c6c6;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.material-icons {
+  color: #5B92A6;
 }
 
 .add-todo {
@@ -51,5 +62,4 @@
   color: #5B92A6;
   font-weight: 500;
   font-size: 20px;
-  text-align: center;
 }
