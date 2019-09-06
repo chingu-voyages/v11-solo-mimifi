@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 15px;
+}
+
+.register-btn, .login-btn {
+  background-color: #5B92A6;
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+}
+
+.register-btn {
+  margin-right: 20px;
+}
+
+.banner {
+  background-image: url('../../assets/homepage_travel.jpg');
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-image {
+  height: 100%;
+}
+
+.three-phrases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.organizer, .easy, .forget {
+  text-transform: uppercase;
+  width: 200px;
+  text-align: center;
+  margin: 10px;
+  padding: 15px;
+  color: #5B92A6;
+  background-color: #F5F2EC;
+  box-shadow: 0 2px 2px #c6c6c6;
+}
+
+.todo {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.material-icons {
+  color: #5B92A6;
+}
+
+.add-todo {
+  text-transform: capitalize;
+  color: #5B92A6;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+@media (min-width: 700px) {
+  .header {
+    margin: 20px;
+  }
+
+  .register-btn, .login-btn {
+    font-size: 16px;
+  }
+
+  .banner {
+    height: 350px;
+  }
+
+  .three-phrases {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .organizer, .easy, .forget {
+    width: 300px;
+  }
+
+  .todo {
+    font-size: 40px;
+    padding-top: 30px;
+  }
+
+  .material-icons, .add-todo {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1020px) {
+  .three-phrases {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

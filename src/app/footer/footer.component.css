@@ -1,0 +1,17 @@
+.footer-text {
+  position: fixed;
+  bottom: 0;
+  text-transform: capitalize;
+  background-color: #5B92A6;
+  color: white;
+  font-size: 12px;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+@media (min-width: 700px) {
+  .footer-text {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+}
