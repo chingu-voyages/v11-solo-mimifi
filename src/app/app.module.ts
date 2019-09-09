@@ -7,18 +7,22 @@ import { FooterComponent } from './footer/footer.component';
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
+import {MatDialogModule} from "@angular/material/dialog";
+import { RegistrationComponent } from './homepage/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     FooterComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
