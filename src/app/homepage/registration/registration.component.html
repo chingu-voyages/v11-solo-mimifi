@@ -1,1 +1,30 @@
-<p>registration works!</p>
+<form class="form-container">
+  <h2 mat-dialog-title>Registration</h2>
+  <div mat-dialog-content class="dialog-container">
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Username">
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="E-Mail">
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Password" type="password" minlength="8" required>
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Repeat Password" type="password" minlength="8" required>
+      </label>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="form-submit">
+    <button mat-raised-button class="form-btn">Cancel</button>
+    <button mat-raised-button class="form-btn">Ok</button>
+  </div>
+</form>
+
