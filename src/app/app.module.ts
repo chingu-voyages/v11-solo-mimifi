@@ -8,6 +8,8 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AppMaterialModule} from "./app-material/app-material.module";
+import {FormsModule} from "@angular/forms";
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import {AppMaterialModule} from "./app-material/app-material.module";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AppMaterialModule
+    AppMaterialModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule {
