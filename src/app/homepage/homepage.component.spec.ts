@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomepageComponent } from './homepage.component';
+import {HomepageComponent} from './homepage.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('HomepageComponent', () => {
   let component: HomepageComponent;
@@ -8,9 +9,10 @@ describe('HomepageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomepageComponent ]
+      imports: [MatDialogModule],
+      declarations: [HomepageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('HomepageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create Homepage component', () => {
     expect(component).toBeTruthy();
   });
 });

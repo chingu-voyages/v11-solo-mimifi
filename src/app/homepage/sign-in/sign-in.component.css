@@ -1,0 +1,28 @@
+.form-container {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 150px;
+  max-width: 500px;
+  background-color: #F5F2EC;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.dialog-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.form-btn {
+  color: white;
+  background-color: #5B92A6;
+  margin: 0 5px 0 5px;
+  text-transform: uppercase;
+}

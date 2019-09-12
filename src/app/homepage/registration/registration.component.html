@@ -1,0 +1,20 @@
+<form class="form-container">
+  <h2 mat-dialog-title>Registration</h2>
+  <div mat-dialog-content class="dialog-container">
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="E-Mail" #userEmail required>
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Password" #userPassword type="password" minlength="8" required>
+      </label>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="form-submit">
+    <button mat-raised-button class="form-btn" (click)="onRegistrationClick(userEmail.value, userPassword.value)">Submit</button>
+    <button mat-raised-button class="form-btn" (click)="onCancelClick()">Cancel</button>
+  </div>
+</form>
+
