@@ -10,8 +10,12 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class SignInComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<SignInComponent>,
-    public authenticationService: AuthService) {
+    private dialogRef: MatDialogRef<SignInComponent>,
+    private authenticationService: AuthService) {
+  }
+
+  onSignInClick(email: string, password: string) {
+    this.authenticationService.signIn(email, password)
   }
 
   onCancelClick(): void {
