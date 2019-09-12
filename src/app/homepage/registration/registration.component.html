@@ -13,7 +13,7 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions class="form-submit">
-    <button mat-raised-button class="form-btn" (click)="authenticationService.signUp(userEmail.value, userPassword.value)">Submit</button>
+    <button mat-raised-button class="form-btn" (click)="onRegistrationClick(userEmail.value, userPassword.value)">Submit</button>
     <button mat-raised-button class="form-btn" (click)="onCancelClick()">Cancel</button>
   </div>
 </form>

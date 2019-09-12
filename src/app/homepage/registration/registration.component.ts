@@ -11,10 +11,14 @@ export class RegistrationComponent {
 
   constructor(
     public dialogRef: MatDialogRef<RegistrationComponent>,
-    public authenticationService: AuthService) {
+    private authenticationService: AuthService) {
   }
 
-  onCancelClick(): void {
+  onRegistrationClick(email: string, password: string) {
+    this.authenticationService.signUp(email, password);
+  }
+
+  public onCancelClick(): void {
     this.dialogRef.close();
   }
 }
