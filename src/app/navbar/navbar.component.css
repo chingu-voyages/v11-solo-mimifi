@@ -1,0 +1,52 @@
+h1{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.sidenav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+}
+
+.sidenav-bar {
+  width: 20%;
+  background-color: #5B92A6;
+  border: 1px solid #707070;
+  text-align: center;
+  padding-top: 3%;
+  color: white;
+}
+
+.sidenav-bar__img {
+  background-image: url("../../assets/user_profile.jpg");
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidenav-bar__btn {
+  border: none;
+  background: none;
+  color: white;
+}
+
+.sidenav-bar__icons {
+position: absolute;
+bottom: 50px;
+width: 100%;
+}
+
+.icon {
+font-size: 40px;
+margin: 10px 25px;
+}
+

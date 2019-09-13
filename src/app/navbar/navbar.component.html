@@ -1,0 +1,14 @@
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav class="sidenav-bar" mode="side" opened>
+    <h1 class="sidenav-bar__title">Hello Dear User!</h1>
+    <div class="sidenav-bar__img"></div>
+    <mat-nav-list>
+      <h1>User's Trip</h1>
+      <button mat-list-item class="sidenav-bar__btn" (click)="openAddTrip()"><i class="material-icons">add</i>{{pageName}}</button>
+    </mat-nav-list>
+    <div class="sidenav-bar__icons">
+      <i class="material-icons icon">assignment_ind</i>
+      <i class="material-icons icon">input</i>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>
