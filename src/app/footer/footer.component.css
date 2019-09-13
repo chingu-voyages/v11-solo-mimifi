@@ -7,6 +7,7 @@
   font-size: 12px;
   width: 100%;
   padding: 5px 10px;
+  border: 1px solid #707070;
 }
 
 @media (min-width: 700px) {
