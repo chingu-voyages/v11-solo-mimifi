@@ -10,12 +10,17 @@ import {AuthService} from "../../auth/auth.service";
 describe('SignInComponent', () => {
   let component: SignInComponent;
   let fixture: ComponentFixture<SignInComponent>;
+  let mockDialogRef = {
+      close: () => {
+      }
+  };
+  let dialogRef: MatDialogRef<any>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SignInComponent],
       imports: [MatFormFieldModule, MatInputModule, BrowserAnimationsModule],
-      providers: [{provide: MatDialogRef, useValue: {}},
+      providers: [{provide: MatDialogRef, useValue: mockDialogRef},
         {provide: AuthService, useValue: {}}]
     })
       .compileComponents();
@@ -25,9 +30,16 @@ describe('SignInComponent', () => {
     fixture = TestBed.createComponent(SignInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    dialogRef = TestBed.get(MatDialogRef)
   });
 
   it('should create sign in dialog', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call the function to close signIn dialog', () => {
+    spyOn(dialogRef, 'close');
+    component.onCancelClick();
+    expect(dialogRef.close).toHaveBeenCalled()
   });
 });

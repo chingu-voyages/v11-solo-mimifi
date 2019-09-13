@@ -10,13 +10,18 @@ import {AuthService} from "../../auth/auth.service";
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
+  const mockDialogRef = {
+    close: () => {
+    }
+  };
+  let dialogRef: MatDialogRef<any>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RegistrationComponent],
       imports: [MatFormFieldModule, MatInputModule, BrowserAnimationsModule],
-      providers: [{provide: MatDialogRef, useValue: {}},
-        {provide: AuthService, useValue: {}}]
+      providers: [{provide: MatDialogRef, useValue: mockDialogRef},
+        {provide: AuthService, useValue:{}}]
     })
       .compileComponents();
   }));
@@ -25,9 +30,16 @@ describe('RegistrationComponent', () => {
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    dialogRef = TestBed.get(MatDialogRef);
   });
 
   it('should create sig up dialog', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call the function to close sigUp dialog', () => {
+    spyOn(dialogRef, 'close');
+    component.onCancelClick();
+    expect(dialogRef.close).toHaveBeenCalled()
   });
 });

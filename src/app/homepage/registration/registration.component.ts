@@ -10,7 +10,7 @@ import {AuthService} from "../../auth/auth.service";
 export class RegistrationComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<RegistrationComponent>,
+    private dialogRef: MatDialogRef<RegistrationComponent>,
     private authenticationService: AuthService) {
   }
 
