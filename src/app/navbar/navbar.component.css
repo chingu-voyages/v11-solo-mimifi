@@ -1,4 +1,4 @@
-h1{
+h1 {
   font-size: 20px;
   font-weight: 600;
 }
@@ -33,20 +33,24 @@ h1{
   margin-right: auto;
 }
 
-.sidenav-bar__btn {
+.sidenav-bar__btn, .sidenav-bar__icons-profile, .sidenav-bar__icons-signOut {
   border: none;
   background: none;
   color: white;
 }
 
+.sidenav-bar__icons-profile:focus, .sidenav-bar__icons-signOut:focus {
+  outline: none;
+  cursor: pointer;
+}
+
 .sidenav-bar__icons {
-position: absolute;
-bottom: 50px;
-width: 100%;
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
 }
 
 .icon {
-font-size: 40px;
-margin: 10px 25px;
+  font-size: 40px;
+  margin: 10px 25px;
 }
-

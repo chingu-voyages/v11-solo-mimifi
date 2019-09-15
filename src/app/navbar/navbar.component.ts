@@ -3,8 +3,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {RegistrationComponent} from "../homepage/registration/registration.component";
 
 export enum PageName {
-  DASHBOARD = 'dashboard',
-  TASKLIST = 'tasklist'
+  DASHBOARD = 'New Trip',
+  TASKLIST = 'New Category'
 }
 
 @Component({
@@ -22,5 +22,13 @@ export class NavbarComponent {
     this.dialog.open(RegistrationComponent, {
       width: '600px'
     })
+  }
+
+  openProfile() {
+
+  }
+
+  signOut() {
+
   }
 }
