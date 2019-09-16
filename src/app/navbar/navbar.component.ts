@@ -23,12 +23,4 @@ export class NavbarComponent {
       width: '600px'
     })
   }
-
-  openProfile() {
-
-  }
-
-  signOut() {
-
-  }
 }

@@ -16,8 +16,6 @@ const routes: Routes = [
     path: 'registration', component: RegistrationComponent
   }, {
     path: 'signIn', component: SignInComponent
-  }, {
-    path: 'navbar', component: NavbarComponent
   }
 ];
 
