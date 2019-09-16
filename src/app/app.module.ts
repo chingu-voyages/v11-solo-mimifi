@@ -10,12 +10,13 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AppMaterialModule} from "./app-material/app-material.module";
 import {FormsModule} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/firestore";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,8 @@ import {AngularFirestore} from "@angular/fire/firestore";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AppMaterialModule,
-    FormsModule
+    FormsModule,
+    MatListModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
