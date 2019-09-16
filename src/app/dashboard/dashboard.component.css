@@ -1,17 +1,18 @@
 .trip {
   display: flex;
   flex-direction: row;
-  margin: 20px;
+  flex-wrap: wrap;
+  margin-left: 20%;
 }
 
 .trip-info {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  width: 200px;
+  width: 20%;
   height: 200px;
   text-align: center;
-  margin: 10px;
+  margin: 20px;
 }
 
 .trip-info__header {

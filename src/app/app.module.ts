@@ -11,12 +11,14 @@ import {AppMaterialModule} from "./app-material/app-material.module";
 import {FormsModule} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {MatListModule} from "@angular/material/list";
+import {NavbarComponent} from "./navbar/navbar.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

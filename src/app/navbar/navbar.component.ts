@@ -1,6 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
-import {RegistrationComponent} from "../homepage/registration/registration.component";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 export enum PageName {
   DASHBOARD = 'New Trip',
@@ -14,13 +12,9 @@ export enum PageName {
 })
 export class NavbarComponent {
   @Input() public pageName: PageName;
+  @Output() public clicked = new EventEmitter();
 
-  constructor(public dialog: MatDialog) {
-  }
-
-  openAddTrip() {
-    this.dialog.open(RegistrationComponent, {
-      width: '600px'
-    })
+  openAddDialog() {
+    this.clicked.emit();
   }
 }

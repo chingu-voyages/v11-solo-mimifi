@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {PageName} from "../navbar/navbar.component";
 
 export interface Trip {
   id: number,
@@ -15,6 +16,7 @@ export interface Trip {
 })
 
 export class DashboardComponent {
+  public dashboardPage: PageName = PageName.DASHBOARD;
   trips: Trip[] = [{
     id: 0,
     tripName: 'World Travel',
@@ -26,4 +28,8 @@ export class DashboardComponent {
     {id: 2, tripName: 'winter Vacation', tripDestination: 'Austria', startDate: '01.12.2020', endDate: '15.12.2020'},
     {id: 3, tripName: 'Spring Vacation', tripDestination: 'Iran', startDate: '01.03.2020', endDate: '15.03.2020'}
   ];
+
+  onClickToAddTrip() {
+    console.log('Hello')
+  }
 }
