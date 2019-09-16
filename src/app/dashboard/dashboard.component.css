@@ -1,0 +1,35 @@
+.trip {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.trip-info {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 10px;
+}
+
+.trip-info__header {
+  height: 40%;
+}
+
+h1 {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+.trip-info__dates {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  height: 60%;
+  justify-content: center;
+}
