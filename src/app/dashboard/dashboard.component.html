@@ -1,0 +1,15 @@
+<div class="wraper">
+  <app-navbar [pageName]="dashboardPage"></app-navbar>
+  <div class="trip">
+    <div class="trip-info" *ngFor="let trip of trips">
+      <div class="trip-info__header">
+        <h1>{{trip.tripName}}</h1>
+        <h2>{{trip.tripDestination}}</h2>
+      </div>
+      <div class="trip-info__dates">
+        <span>Start Date:{{trip.startDate}}</span>
+        <span>End Date:{{trip.endDate}}</span>
+      </div>
+    </div>
+  </div>
+</div>
