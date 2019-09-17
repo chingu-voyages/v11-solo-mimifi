@@ -16,6 +16,7 @@ export class RegistrationComponent {
 
   onRegistrationClick(email: string, password: string) {
     this.authenticationService.signUp(email, password);
+    this.dialogRef.close();
   }
 
   public onCancelClick(): void {

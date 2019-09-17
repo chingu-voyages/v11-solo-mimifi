@@ -15,7 +15,8 @@ export class SignInComponent {
   }
 
   onSignInClick(email: string, password: string) {
-    this.authenticationService.signIn(email, password)
+    this.authenticationService.signIn(email, password);
+    this.dialogRef.close();
   }
 
   onCancelClick(): void {

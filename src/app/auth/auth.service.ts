@@ -28,9 +28,9 @@ export class AuthService {
 
   signUp(email, password) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+      .then(() => {
+        this.router.navigate(['/dashboard']);
         this.sendVerificationEmail();
-        window.alert('You have been successfully registered!');
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -39,15 +39,14 @@ export class AuthService {
   sendVerificationEmail() {
     this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
-        this.router.navigate(['/homepage'])
+        this.router.navigate(['/dashboard'])
       })
   }
 
   signIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.router.navigate(['/homepage']);
-        console.log('User is signed in successfully.')
+      .then(() => {
+        this.router.navigate(['/dashboard']);
       }).catch((error) => {
         window.alert(error.message)
       })
