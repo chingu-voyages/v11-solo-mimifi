@@ -8,17 +8,23 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireAuthModule} from "@angular/fire/auth";
 import {AppMaterialModule} from "./app-material/app-material.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {MatListModule} from "@angular/material/list";
 import {NavbarComponent} from "./navbar/navbar.component";
+import {SignInComponent} from "./homepage/sign-in/sign-in.component";
+import {RegistrationComponent} from "./homepage/registration/registration.component";
+import {NewTripComponent} from "./dashboard/new-trip/new-trip.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    SignInComponent,
+    RegistrationComponent,
+    NewTripComponent
   ],
   imports: [
     BrowserModule,
@@ -27,10 +33,12 @@ import {NavbarComponent} from "./navbar/navbar.component";
     AngularFireAuthModule,
     AppMaterialModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
   ],
   providers: [AngularFirestore],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SignInComponent, RegistrationComponent, NewTripComponent]
 })
 export class AppModule {
 }

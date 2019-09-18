@@ -6,6 +6,10 @@ import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MaterialFileInputModule} from "ngx-material-file-input";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MaterialFileInputModule,
+    MatIconModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -25,7 +33,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MaterialFileInputModule,
+    MatIconModule,
   ]
 })
 export class AppMaterialModule {

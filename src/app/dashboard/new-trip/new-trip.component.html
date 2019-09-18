@@ -1,0 +1,38 @@
+<form class="form-container" [formGroup]="newTripForm" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>New Trip</h2>
+  <div mat-dialog-content class="dialog-container">
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Title" formControlName="title" required>
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Destination" formControlName="destination">
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput [matDatepicker]="startPicker" placeholder="Start Date" formControlName="startDate">
+      </label>
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <input matInput [matDatepicker]="endPicker" placeholder="End Date" formControlName="endDate">
+      </label>
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <ngx-mat-file-input placeholder="Upload Image" [accept]="'image/*'" formControlName="image">
+      </ngx-mat-file-input>
+      <mat-icon matSuffix>folder</mat-icon>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="form-submit">
+    <button mat-raised-button class="form-btn" type="submit" (click)="addNewTrip()">Submit</button>
+    <button mat-raised-button class="form-btn" (click)="onCancelClick()">Cancel</button>
+  </div>
+</form>

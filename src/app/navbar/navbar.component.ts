@@ -14,7 +14,7 @@ export class NavbarComponent {
   @Input() public pageName: PageName;
   @Output() public clicked = new EventEmitter();
 
-  openAddDialog() {
+  public openAddDialog() {
     this.clicked.emit();
   }
 }

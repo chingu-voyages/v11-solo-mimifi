@@ -1,15 +1,14 @@
-<div class="wraper">
-  <app-navbar [pageName]="dashboardPage"></app-navbar>
+<app-navbar [pageName]="dashboardPage" (clicked)="openNewTripDialog()">
   <div class="trip">
     <div class="trip-info" *ngFor="let trip of trips">
       <div class="trip-info__header">
-        <h1>{{trip.tripName}}</h1>
-        <h2>{{trip.tripDestination}}</h2>
+        <h1>{{trip.title}}</h1>
+        <h2>{{trip.destination}}</h2>
       </div>
       <div class="trip-info__dates">
-        <span>Start Date:{{trip.startDate}}</span>
-        <span>End Date:{{trip.endDate}}</span>
+        <span>Start Date:{{trip.startDate | date: 'shortDate'}}</span>
+        <span>End Date:{{trip.endDate | date: 'shortDate'}}</span>
       </div>
     </div>
   </div>
-</div>
+</app-navbar>
