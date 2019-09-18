@@ -25,7 +25,7 @@ export class DashboardComponent {
   constructor(public dialog: MatDialog) {
   }
 
-  openNewTripDialog() {
+  public openNewTripDialog() {
     const dialogTrip = this.dialog.open(NewTripComponent, {
       width: '600px'
     });
