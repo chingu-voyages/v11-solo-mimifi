@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AuthService} from "../auth/auth.service";
 
 export enum PageName {
   DASHBOARD = 'New Trip',
@@ -12,9 +13,16 @@ export enum PageName {
 })
 export class NavbarComponent {
   @Input() public pageName: PageName;
-  @Output() public clicked = new EventEmitter();
+  @Output() public clicked = new EventEmitter<void>();
+
+  constructor(private authenticationService: AuthService) {
+  }
 
   public openAddDialog() {
     this.clicked.emit();
+  }
+
+  public signOut() {
+    this.authenticationService.signOut()
   }
 }
