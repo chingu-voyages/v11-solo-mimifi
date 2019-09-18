@@ -27,7 +27,7 @@ import {NavbarComponent} from "./navbar/navbar.component";
     AngularFireAuthModule,
     AppMaterialModule,
     FormsModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

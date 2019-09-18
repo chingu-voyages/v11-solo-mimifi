@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {PageName} from "../navbar/navbar.component";
+import {MatDialog} from "@angular/material/dialog";
+import {NewTripComponent} from "./new-trip/new-trip.component";
 
 export interface Trip {
   id: number,
@@ -28,4 +30,13 @@ export class DashboardComponent {
     {id: 2, tripName: 'winter Vacation', tripDestination: 'Austria', startDate: '01.12.2020', endDate: '15.12.2020'},
     {id: 3, tripName: 'Spring Vacation', tripDestination: 'Iran', startDate: '01.03.2020', endDate: '15.03.2020'}
   ];
+
+  constructor(public dialog: MatDialog) {
+  }
+
+  openNewTripDialog() {
+    this.dialog.open(NewTripComponent, {
+      width: '600px'
+    })
+  }
 }

@@ -5,6 +5,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {RegistrationComponent} from "./homepage/registration/registration.component";
 import {SignInComponent} from "./homepage/sign-in/sign-in.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {NewTripComponent} from "./dashboard/new-trip/new-trip.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
     path: 'signIn', component: SignInComponent
   }, {
     path: 'dashboard', component: DashboardComponent
+  }, {
+    path: 'newTrip', component: NewTripComponent
   }
 ];
 
@@ -29,5 +32,5 @@ export class AppRoutingModule {
 }
 
 // use export routingComponents to prevent import every module in app.module.ts
-export const routingComponents = [HomepageComponent, FooterComponent, RegistrationComponent, SignInComponent, DashboardComponent
-];
+export const routingComponents = [HomepageComponent, FooterComponent, RegistrationComponent, SignInComponent,
+  DashboardComponent, NewTripComponent];
