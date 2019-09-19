@@ -1,6 +1,6 @@
 <app-navbar [pageName]="dashboardPage" (clicked)="openNewTripDialog()">
   <div class="trip">
-    <div class="trip-info" *ngFor="let trip of trips">
+    <div class="trip-info" *ngFor="let trip of trips | async">
       <div class="trip-info__header">
         <h1>{{trip.title}}</h1>
         <h2>{{trip.destination}}</h2>

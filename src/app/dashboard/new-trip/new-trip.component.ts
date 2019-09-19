@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Trip} from "../dashboard.component";
 import {MatDialogRef} from "@angular/material/dialog";
+import {TripModel} from "../../repository/models/trip.model";
 
 @Component({
   selector: 'app-new-trip',
@@ -26,7 +26,7 @@ export class NewTripComponent {
       destination: this.newTripForm.get('destination').value,
       startDate: this.newTripForm.get('startDate').value,
       endDate: this.newTripForm.get('endDate').value,
-    } as Trip);
+    } as TripModel);
   }
 
   public onCancelClick() {
