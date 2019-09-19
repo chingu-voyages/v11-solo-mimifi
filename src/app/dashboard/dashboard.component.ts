@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PageName} from "../navbar/navbar.component";
 import {MatDialog} from "@angular/material/dialog";
 import {NewTripComponent} from "./new-trip/new-trip.component";
+import {TripService} from "../repository/trip.service";
 
 export interface Trip {
   id: number,
@@ -17,12 +18,19 @@ export interface Trip {
   styleUrls: ['./dashboard.component.css']
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
   public dashboardPage: PageName = PageName.DASHBOARD;
   trips: Trip[] = [];
 
-  constructor(public dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private tripService: TripService) {
+  }
+
+  ngOnInit() {
+    this.tripService.getTrips().subscribe(trips => {
+      this.trips = trips;
+    })
   }
 
   public openNewTripDialog() {
@@ -36,4 +44,6 @@ export class DashboardComponent {
       }
     })
   }
+
+
 }
