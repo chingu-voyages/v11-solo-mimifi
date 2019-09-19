@@ -29,11 +29,10 @@ export class AuthService {
   signUp(email, password) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
-        this.router.navigate(['/dashboard']);
         this.sendVerificationEmail();
       }).catch((error) => {
-        window.alert(error.message)
-      })
+      window.alert(error.message)
+    })
   }
 
   sendVerificationEmail() {
@@ -48,7 +47,15 @@ export class AuthService {
       .then(() => {
         this.router.navigate(['/dashboard']);
       }).catch((error) => {
-        window.alert(error.message)
+      window.alert(error.message)
+    })
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut()
+      .then(() => {
+        localStorage.removeItem('user');
+        this.router.navigate(['/homepage'])
       })
   }
 }
