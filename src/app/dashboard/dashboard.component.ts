@@ -22,7 +22,7 @@ export class DashboardComponent {
   public dashboardPage: PageName = PageName.DASHBOARD;
   trips: Trip[] = [];
 
-  constructor(public dialog: MatDialog) {
+  constructor(private dialog: MatDialog) {
   }
 
   public openNewTripDialog() {
