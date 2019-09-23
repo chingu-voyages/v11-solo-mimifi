@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from "../repository/auth.service";
 
 export enum PageName {
   DASHBOARD = 'New Trip',
