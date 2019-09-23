@@ -13,7 +13,7 @@ export class TripService {
   trips: Observable<TripEntity[]>;
 
   constructor(private afStore: AngularFirestore) {
-    this.tripsCollection = afStore.collection<TripEntity>('trips');
+    this.tripsCollection = afStore.collection<TripEntity>('trips', ref => ref.orderBy('title'));
     this.trips = this.tripsCollection.snapshotChanges().pipe(
       map(actions => actions.map(action => {
         const trip = action.payload.doc.data() as TripEntity;
