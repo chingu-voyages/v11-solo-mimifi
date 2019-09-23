@@ -3,6 +3,11 @@
   <div mat-dialog-content class="dialog-container">
     <mat-form-field>
       <label>
+        <input matInput placeholder="Display Name" #displayName>
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
         <input matInput placeholder="E-Mail" #userEmail required>
       </label>
     </mat-form-field>
@@ -13,7 +18,9 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions class="form-submit">
-    <button mat-raised-button class="form-btn" (click)="onRegistrationClick(userEmail.value, userPassword.value)">Submit</button>
+    <button mat-raised-button class="form-btn" (click)="onRegistrationClick(userEmail.value, userPassword.value, displayName.value)">
+      Submit
+    </button>
     <button mat-raised-button class="form-btn" (click)="onCancelClick()">Cancel</button>
   </div>
 </form>

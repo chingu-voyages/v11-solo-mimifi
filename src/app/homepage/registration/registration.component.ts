@@ -14,8 +14,8 @@ export class RegistrationComponent {
     private authenticationService: AuthService) {
   }
 
-  onRegistrationClick(email: string, password: string) {
-    this.authenticationService.signUp(email, password);
+  public onRegistrationClick(email: string, password: string, displayName: string) {
+    this.authenticationService.signUp(email, password, displayName);
     this.dialogRef.close();
   }
 
