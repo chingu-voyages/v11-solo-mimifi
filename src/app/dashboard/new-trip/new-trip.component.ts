@@ -21,11 +21,16 @@ export class NewTripComponent {
   }
 
   addNewTrip() {
+    let startDateValue = this.newTripForm.get('startDate').value;
+    let startDate = startDateValue === "" ? null : startDateValue;
+    let endDateValue = this.newTripForm.get('endDate').value;
+    let endDate = endDateValue === "" ? null : endDateValue;
+
     this.dialogRef.close({
       title: this.newTripForm.get('title').value,
       destination: this.newTripForm.get('destination').value,
-      startDate: this.newTripForm.get('startDate').value,
-      endDate: this.newTripForm.get('endDate').value,
+      startDate,
+      endDate,
     } as TripModel);
   }
 

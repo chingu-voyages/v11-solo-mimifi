@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {TripEntity} from "./entity/trip";
 import {TripModel} from "./models/trip.model";
+import * as firebase from 'firebase';
+import Timestamp = firebase.firestore.Timestamp;
 
 @Injectable({providedIn: "root"})
 export class TripService {
@@ -20,14 +22,31 @@ export class TripService {
       })));
   }
 
-  getTrip(): Observable<TripModel[]> {
+  public getTrip(): Observable<TripModel[]> {
     return this.trips.pipe(map((tripEntities) => tripEntities.map((tripEntity) => {
-      return {title: tripEntity.title, destination: tripEntity.destination} as TripModel;
+      let startDate = TripService.convertTimestampToDate(tripEntity.startDate);
+      let endDate = TripService.convertTimestampToDate(tripEntity.endDate);
+      return {...tripEntity, startDate, endDate} as TripModel;
     })))
   }
 
-  addTrip(trip: TripModel) {
-    const newTrip = {title: trip.title, destination: trip.destination} as TripEntity;
-    this.tripsCollection.add(newTrip)
+  private static convertTimestampToDate(timestamp: Timestamp) {
+    let timestampSeconds = null;
+    if (timestamp) {
+      timestampSeconds = timestamp.toDate();
+      return new Date(timestampSeconds);
+    }
+  }
+
+  public addTrip(trip: TripModel) {
+    let startDate = null;
+    let endDate = null;
+    if (trip.startDate) {
+      startDate = firebase.firestore.Timestamp.fromDate(trip.startDate)
+    } if (trip.endDate) {
+      endDate = firebase.firestore.Timestamp.fromDate(trip.endDate);
+    }
+    const newTrip = {...trip, startDate, endDate} as TripEntity;
+    this.tripsCollection.add(newTrip);
   }
 }

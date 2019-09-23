@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       width: '600px'
     });
 
-    dialogTrip.afterClosed().subscribe(result => {
+    dialogTrip.afterClosed().subscribe((result: TripModel) => {
       if (result !== undefined) {
         this.tripService.addTrip(result);
       }

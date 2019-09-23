@@ -6,8 +6,8 @@
         <h2>{{trip.destination}}</h2>
       </div>
       <div class="trip-info__dates">
-        <span>Start Date:{{trip.startDate | date: 'shortDate'}}</span>
-        <span>End Date:{{trip.endDate | date: 'shortDate'}}</span>
+        <span *ngIf="trip.startDate">Start Date:{{trip.startDate | date: 'shortDate'}}</span>
+        <span *ngIf="trip.endDate">End Date:{{trip.endDate | date: 'shortDate'}}</span>
       </div>
     </div>
   </div>
