@@ -2,8 +2,8 @@
   <mat-sidenav class="sidenav-bar" mode="side" opened>
     <h1 class="sidenav-bar__title">Hello Dear User!</h1>
     <div class="sidenav-bar__img"></div>
-    <mat-nav-list>
-      <h1>User's Trip</h1>
+    <mat-nav-list *ngIf="(authState | async) as auth">
+      <h1>{{auth.displayName}}'s Trip</h1>
       <button mat-list-item class="sidenav-bar__btn" (click)="openAddDialog()">
         <i class="material-icons">add</i>{{pageName}}
       </button>

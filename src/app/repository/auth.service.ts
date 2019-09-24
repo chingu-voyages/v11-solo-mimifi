@@ -16,24 +16,18 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private afStore: AngularFirestore,
     private router: Router) {
-
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('userData', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('userData'))
-      } else {
-        localStorage.setItem('userData', null);
-        JSON.parse(localStorage.getItem('userData'))
-      }
-    })
   }
+
+  public authState = this.afAuth.authState;
 
   public signUp(email, password, displayName) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.sendVerificationEmail();
-        this.setUserData(result.user, displayName);
+        result.user.updateProfile({displayName: displayName})
+          .then(() => {
+            this.sendVerificationEmail();
+            this.setUserData(result.user);
+          })
       }).catch((error) => {
       window.alert(error.message)
     })
@@ -48,20 +42,24 @@ export class AuthService {
 
   public signIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.router.navigate(['/dashboard']);
+      .then((result) => {
+        if(result.user.emailVerified) {
+          this.router.navigate(['/dashboard']);
+        } else {
+          window.alert('Please verify your email.')
+        }
       }).catch((error) => {
       window.alert(error.message)
     })
   }
 
-  public setUserData(user, displayName) {
+  public setUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afStore.doc(`users/${user.uid}`);
     const userData: UserModel = {
       userId: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
-      displayName,
+      displayName: user.displayName,
       photoURL: user.photoURL
     };
     return userRef.set(userData, {
