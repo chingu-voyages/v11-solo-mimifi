@@ -1,5 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {AuthService} from "../repository/auth.service";
+import {Observable, Subject} from "rxjs";
+import {User} from "firebase";
+import {takeUntil} from "rxjs/operators";
 
 export enum PageName {
   DASHBOARD = 'New Trip',
@@ -11,7 +14,14 @@ export enum PageName {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
+  public authState: Observable<User>;
+  public _destroy: Subject<boolean> = new Subject<boolean>();
+
+  ngOnInit(): void {
+    this.authState = this.authenticationService.authState.pipe(takeUntil(this._destroy));
+  }
+
   @Input() public pageName: PageName;
   @Output() public clicked = new EventEmitter<void>();
 
@@ -24,5 +34,9 @@ export class NavbarComponent {
 
   public signOut() {
     this.authenticationService.signOut()
+  }
+
+  ngOnDestroy(): void {
+    this._destroy.next(true);
   }
 }

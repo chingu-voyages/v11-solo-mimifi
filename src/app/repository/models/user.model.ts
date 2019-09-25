@@ -1,7 +1,7 @@
-export interface User {
-  userid: string,
-  email: string,
+export interface UserModel {
+  userId: string;
+  email: string;
+  emailVerified: boolean;
   displayName: string;
   photoURL: string;
-  emailVerified: boolean;
 }
