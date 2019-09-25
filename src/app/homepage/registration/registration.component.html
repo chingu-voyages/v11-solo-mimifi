@@ -2,23 +2,18 @@
   <h2 mat-dialog-title>Registration</h2>
   <div mat-dialog-content class="dialog-container">
     <mat-form-field>
-      <label>
-        <input matInput placeholder="Display Name" #displayName>
-      </label>
+      <input matInput placeholder="Display Name" #displayName>
     </mat-form-field>
     <mat-form-field>
-      <label>
-        <input matInput placeholder="E-Mail" #userEmail required>
-      </label>
+      <input matInput placeholder="E-Mail" #userEmail required>
     </mat-form-field>
     <mat-form-field>
-      <label>
-        <input matInput placeholder="Password" #userPassword type="password" minlength="8" required>
-      </label>
+      <input matInput placeholder="Password" #userPassword type="password" minlength="8" required>
     </mat-form-field>
   </div>
   <div mat-dialog-actions class="form-submit">
-    <button mat-raised-button class="form-btn" (click)="onRegistrationClick(userEmail.value, userPassword.value, displayName.value)">
+    <button mat-raised-button class="form-btn"
+            (click)="onRegistrationClick(userEmail.value, userPassword.value, displayName.value)">
       Submit
     </button>
     <button mat-raised-button class="form-btn" (click)="onCancelClick()">Cancel</button>
