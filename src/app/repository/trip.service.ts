@@ -5,6 +5,7 @@ import {map} from "rxjs/operators";
 import {TripEntity} from "./entity/trip";
 import {TripModel} from "./models/trip.model";
 import * as firebase from 'firebase';
+import {AuthService} from "./auth.service";
 import Timestamp = firebase.firestore.Timestamp;
 
 @Injectable({providedIn: "root"})
@@ -12,14 +13,18 @@ export class TripService {
   private tripsCollection: AngularFirestoreCollection<TripEntity>;
   trips: Observable<TripEntity[]>;
 
-  constructor(private afStore: AngularFirestore) {
+  constructor(private afStore: AngularFirestore,
+              private authService: AuthService) {
     this.tripsCollection = afStore.collection<TripEntity>('trips', ref => ref.orderBy('title'));
     this.trips = this.tripsCollection.snapshotChanges().pipe(
-      map(actions => actions.map(action => {
-        const trip = action.payload.doc.data() as TripEntity;
-        const tripId = action.payload.doc.id;
-        return {id: tripId, ...trip};
-      })));
+      map(actions => actions
+        .map(action => {
+          const trip = action.payload.doc.data() as TripEntity;
+          const tripId = action.payload.doc.id;
+          return {id: tripId, ...trip};
+        }))
+    )
+    ;
   }
 
   public getTrip(): Observable<TripModel[]> {
@@ -43,10 +48,15 @@ export class TripService {
     let endDate = null;
     if (trip.startDate) {
       startDate = firebase.firestore.Timestamp.fromDate(trip.startDate)
-    } if (trip.endDate) {
+    }
+    if (trip.endDate) {
       endDate = firebase.firestore.Timestamp.fromDate(trip.endDate);
     }
     const newTrip = {...trip, startDate, endDate} as TripEntity;
-    this.tripsCollection.add(newTrip);
+    this.tripsCollection.add(newTrip)
+      .then((trip) => {
+        this.authService.updateUserDate(trip.id);
+      })
+
   }
 }

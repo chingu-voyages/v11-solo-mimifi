@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {User} from "firebase";
+import * as firebase from "firebase";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {Router} from "@angular/router";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
@@ -10,7 +10,6 @@ import {UserModel} from "./models/user.model";
 })
 
 export class AuthService {
-  userData: User;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -60,7 +59,8 @@ export class AuthService {
       email: user.email,
       emailVerified: user.emailVerified,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
+      trips: []
     };
     return userRef.set(userData, {
       merge: true
@@ -75,4 +75,11 @@ export class AuthService {
       })
   }
 
+  public updateUserDate(tripId: string) {
+    const userRef = this.afStore.collection('users').doc(this.afAuth.auth.currentUser.uid);
+
+    userRef.update({
+      trips: firebase.firestore.FieldValue.arrayUnion(tripId)
+    });
+  }
 }
