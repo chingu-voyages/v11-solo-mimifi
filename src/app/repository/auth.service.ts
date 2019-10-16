@@ -41,12 +41,8 @@ export class AuthService {
 
   public signIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        if(result.user.emailVerified) {
-          this.router.navigate(['/dashboard']);
-        } else {
-          window.alert('Please verify your email.')
-        }
+      .then(() => {
+          this.router.navigate(['/dashboard'])
       }).catch((error) => {
       window.alert(error.message)
     })
@@ -59,8 +55,7 @@ export class AuthService {
       email: user.email,
       emailVerified: user.emailVerified,
       displayName: user.displayName,
-      photoURL: user.photoURL,
-      trips: []
+      photoURL: user.photoURL
     };
     return userRef.set(userData, {
       merge: true
