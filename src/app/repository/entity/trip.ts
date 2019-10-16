@@ -7,4 +7,5 @@ export interface TripEntity {
   destination: string;
   startDate: Timestamp;
   endDate: Timestamp;
+  userId: string;
 }

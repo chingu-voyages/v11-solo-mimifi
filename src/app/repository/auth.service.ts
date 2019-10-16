@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import * as firebase from "firebase";
 import {AngularFireAuth} from "@angular/fire/auth";
 import {Router} from "@angular/router";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
@@ -68,13 +67,5 @@ export class AuthService {
         localStorage.removeItem('user');
         this.router.navigate(['/homepage'])
       })
-  }
-
-  public updateUserDate(tripId: string) {
-    const userRef = this.afStore.collection('users').doc(this.afAuth.auth.currentUser.uid);
-
-    userRef.update({
-      trips: firebase.firestore.FieldValue.arrayUnion(tripId)
-    });
   }
 }

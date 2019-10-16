@@ -3,5 +3,6 @@ export interface TripModel {
   title: string,
   destination: string,
   startDate: Date,
-  endDate: Date
+  endDate: Date,
+  userId: string
 }
