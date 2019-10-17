@@ -6,6 +6,7 @@ import {TripService} from "../repository/trip.service";
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from "rxjs/operators";
 import {TripModel} from "../repository/models/trip.model";
+import {TripEntity} from "../repository/entity/trip";
 
 @Component({
   selector: 'app-dashboard',
@@ -43,7 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this._destroy.next(true);
   }
 
-  removeTrip(tripId, trip) {
+  removeTrip(tripId: string, trip: TripEntity) {
     const tripToRemove = document.getElementById(tripId);
     tripToRemove.remove();
     this.tripService.removeTripData(trip);
