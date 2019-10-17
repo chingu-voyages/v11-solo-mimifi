@@ -33,3 +33,14 @@ h2 {
   height: 60%;
   justify-content: center;
 }
+
+.remove-trip {
+  background-color: #5B92A6;
+  border: none;
+  color: #F5F2EC;
+  font-size: 12px;
+}
+
+.remove-trip:focus {
+  outline: none;
+}

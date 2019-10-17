@@ -14,7 +14,8 @@ export class NewTripComponent {
     destination: new FormControl(''),
     startDate: new FormControl(''),
     endDate: new FormControl(''),
-    image: new FormControl('')
+    image: new FormControl(''),
+    uid: new FormControl('')
   });
 
   constructor(public dialogRef: MatDialogRef<NewTripComponent>) {
