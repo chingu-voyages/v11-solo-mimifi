@@ -61,4 +61,8 @@ export class TripService {
     const newTrip = {...trip, startDate, endDate, userId: this.afAuth.auth.currentUser.uid} as TripEntity;
     this.tripsCollection.add(newTrip)
   }
+
+  public removeTripData(trip) {
+    this.afStore.collection("trips").doc(trip).delete()
+  }
 }

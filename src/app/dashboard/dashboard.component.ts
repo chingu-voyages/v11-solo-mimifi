@@ -42,4 +42,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._destroy.next(true);
   }
+
+  removeTrip(tripId, trip) {
+    const tripToRemove = document.getElementById(tripId);
+    tripToRemove.remove();
+    this.tripService.removeTripData(trip);
+  }
 }
